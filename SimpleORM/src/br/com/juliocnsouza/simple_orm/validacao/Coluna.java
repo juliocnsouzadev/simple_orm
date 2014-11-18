@@ -33,4 +33,6 @@ public @interface Coluna {
 
     public boolean donaDoRelacionamento() default true;
 
+    public boolean primaryKey() default false;
+
 }

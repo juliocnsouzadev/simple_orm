@@ -59,6 +59,7 @@ public class ColunaUtil {
                       ? coluna.nome()
                       : field.getName();
         boolean temRelacionamento = coluna.relacionamento() != Coluna.Relacionamento.NENHUM;
+        boolean chavePrimaria = coluna.primaryKey();
         if ( temRelacionamento ) {
             campo.setClazzRelacionamento( field.getType() );
         }
@@ -67,16 +68,26 @@ public class ColunaUtil {
         campo.setValor( valor );
         campo.setEhDonoRelacionamento( ehDonoRelacionamento );
         campo.setTemRelacionamento( temRelacionamento );
+        campo.setChavePrimaria( chavePrimaria );
         return campo;
     }
 
     public static class Campo {
 
+        private boolean chavePrimaria;
         private String nome;
         private Object valor;
         private boolean temRelacionamento;
         private boolean ehDonoRelacionamento;
         private Class<?> clazzRelacionamento;
+
+        public boolean isChavePrimaria() {
+            return chavePrimaria;
+        }
+
+        public void setChavePrimaria( boolean chavePrimaria ) {
+            this.chavePrimaria = chavePrimaria;
+        }
 
         public String getNome() {
             return nome;
@@ -124,7 +135,7 @@ public class ColunaUtil {
             String clazz = clazzRelacionamento != null && temRelacionamento
                            ? clazzRelacionamento.getSimpleName()
                            : "sem relacionamento";
-            return "\n-> Campo:\n" + "nome: " + nome + " | valor: " + valor + " | temRelacionamento: " + temRelacionamento + " | ehDonoRelacionamento: " + ehDonoRelacionamento + " | classeRelacionamento: " + clazz;
+            return "\n-> Campo:\n" + "nome: " + nome + " | valor: " + valor + " | temRelacionamento: " + temRelacionamento + " | ehDonoRelacionamento: " + ehDonoRelacionamento + " | classeRelacionamento: " + clazz + " | ehChavePrimaria: " + chavePrimaria;
         }
 
     }
