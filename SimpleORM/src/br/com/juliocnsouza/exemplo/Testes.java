@@ -3,6 +3,7 @@ package br.com.juliocnsouza.exemplo;
 import br.com.juliocnsouza.exemplo.model.Pessoa;
 import br.com.juliocnsouza.exemplo.model.PessoaFisica;
 import br.com.juliocnsouza.simple_orm.util.ColunaUtil;
+import br.com.juliocnsouza.simple_orm.util.QueryUtil;
 import br.com.juliocnsouza.simple_orm.util.TabelaUtil;
 
 /**
@@ -32,6 +33,12 @@ public class Testes {
             System.out.println( ColunaUtil.getCampos( pessoa ) + "\n" );
             System.out.println( TabelaUtil.getNomeTabela( pessoaFisica ) );
             System.out.println( ColunaUtil.getCampos( pessoaFisica ) );
+
+            System.out.println( "\nQueries" );
+            System.out.println( "\nInsert: " + TabelaUtil.getNomeTabela( pessoa ) );
+            System.out.println( QueryUtil.getInsert( pessoa ) );
+            System.out.println( "\nInsert: " + TabelaUtil.getNomeTabela( pessoaFisica ) );
+            System.out.println( QueryUtil.getInsert( pessoaFisica ) );
 
         }
         catch ( Exception ex ) {

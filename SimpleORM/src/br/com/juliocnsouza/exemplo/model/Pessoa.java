@@ -13,11 +13,22 @@ import br.com.juliocnsouza.simple_orm.validacao.Entidade;
 @Entidade
 public class Pessoa {
 
+    @Coluna( primaryKey = true )
+    private long id;
+
     @Coluna
     private String nome;
 
     @Coluna( nome = "area_estudo" )
     private String areaEstudo;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId( long id ) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;

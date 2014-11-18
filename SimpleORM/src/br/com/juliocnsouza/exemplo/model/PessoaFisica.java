@@ -13,9 +13,20 @@ import br.com.juliocnsouza.simple_orm.validacao.Entidade;
 @Entidade( nome = "pessoa_fisica" )
 public class PessoaFisica {
 
+    @Coluna( primaryKey = true )
+    private long id;
+
     @Coluna( donaDoRelacionamento = true ,
              relacionamento = Coluna.Relacionamento.ONE_TO_ONE )
     private Pessoa pessoa;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId( long id ) {
+        this.id = id;
+    }
 
     public Pessoa getPessoa() {
         return pessoa;
