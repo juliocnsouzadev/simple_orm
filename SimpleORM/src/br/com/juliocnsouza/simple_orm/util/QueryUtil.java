@@ -26,7 +26,7 @@ public class QueryUtil {
 
         String tabela = TabelaUtil.getNomeTabela( object );
         List<ColunaUtil.Campo> campos = ColunaUtil.getCampos( object );
-        StringBuilder query = new StringBuilder( "INSER INTO " + tabela + " (" );
+        StringBuilder query = new StringBuilder( "INSERT INTO " + tabela + " (" );
         getDados( campos , query , true );
         query.append( ") values (" );
         getDados( campos , query , false );
